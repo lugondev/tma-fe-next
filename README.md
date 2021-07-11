@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This file is written with the help Markdown [Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
+
+## Project Setup
+This is a [Next.js](https://nextjs.org/) TypeScript project bootstrapped with [`npx create-next-app --typescript`](https://nextjs.org/docs/getting-started).
+
 
 ## Getting Started
 
