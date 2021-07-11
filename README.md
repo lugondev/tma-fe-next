@@ -25,9 +25,11 @@ This is a [Next.js](https://nextjs.org/) TypeScript project bootstrapped with [`
 2. Configure Store ([Reference#1](https://redux-toolkit.js.org/tutorials/quick-start#create-a-redux-store), )
 3. Provide the Redux Store to React ([Reference#1](https://redux-toolkit.js.org/tutorials/quick-start#provide-the-redux-store-to-react))
 4. Define Typed Hooks ([Reference#1](https://redux-toolkit.js.org/tutorials/typescript#define-typed-hooks))
-5. Creating Slices 
+5. Creating Slices
    
    Slices create Action Creators and Reducers from same file. Learn about Slices from [here](https://redux-toolkit.js.org/usage/usage-guide#creating-slices-of-state)
+
+6. Use Typed Hooks in Components ([Reference](https://redux-toolkit.js.org/tutorials/typescript#use-typed-hooks-in-components))
 ## Getting Started
 
 First, run the development server:
