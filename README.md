@@ -1,5 +1,18 @@
 This file is written with the help Markdown [Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
 
+## Pre-requisites
+1. [Json Server](https://www.npmjs.com/package/json-server)
+
+> // Installation <br>
+>  npm install -g json-server
+>
+> // Create Data File <br>
+> // Create db.json file under json-server folder 
+>
+> // Run Server <br>
+>  json-server --watch db.json --port 3004
+
+
 ## Project Setup
 This is a [Next.js](https://nextjs.org/) TypeScript project bootstrapped with [`npx create-next-app --typescript`](https://nextjs.org/docs/getting-started).
 

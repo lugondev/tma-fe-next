@@ -33,5 +33,8 @@ yarn-error.log*
 # vercel
 .vercel
 
-#Webstorm Directory
+# Webstorm Directory
 .idea
+
+# Json Server
+json-server
