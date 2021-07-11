@@ -16,7 +16,18 @@ This file is written with the help Markdown [Cheat Sheet](https://www.markdowngu
 ## Project Setup
 This is a [Next.js](https://nextjs.org/) TypeScript project bootstrapped with [`npx create-next-app --typescript`](https://nextjs.org/docs/getting-started).
 
+## Configuring Redux using Redux Toolkit
 
+1. Installation of Redux Toolkit ([Reference#1](https://redux-toolkit.js.org/tutorials/quick-start#install-redux-toolkit-and-react-redux), [Reference#2](https://react-redux.js.org/introduction/getting-started))
+   
+    `npm install --save react-redux @reduxjs/toolkit @types/react-redux`
+
+2. Configure Store ([Reference#1](https://redux-toolkit.js.org/tutorials/quick-start#create-a-redux-store), )
+3. Provide the Redux Store to React ([Reference#1](https://redux-toolkit.js.org/tutorials/quick-start#provide-the-redux-store-to-react))
+4. Define Typed Hooks ([Reference#1](https://redux-toolkit.js.org/tutorials/typescript#define-typed-hooks))
+5. Creating Slices 
+   
+   Slices create Action Creators and Reducers from same file. Learn about Slices from [here](https://redux-toolkit.js.org/usage/usage-guide#creating-slices-of-state)
 ## Getting Started
 
 First, run the development server:
