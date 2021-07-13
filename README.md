@@ -30,6 +30,13 @@ This is a [Next.js](https://nextjs.org/) TypeScript project bootstrapped with [`
    Slices create Action Creators and Reducers from same file. Learn about Slices from [here](https://redux-toolkit.js.org/usage/usage-guide#creating-slices-of-state)
 
 6. Use Typed Hooks in Components ([Reference](https://redux-toolkit.js.org/tutorials/typescript#use-typed-hooks-in-components))
+
+## Using RTK Query (instead Creating Slices)
+> Note <br>
+> - Use queries for requests that retrieve data. 
+> - For anything that alters data on the server or will possibly invalidate the cache, you should use a Mutation
+- #### Basic Usage ([Reference](https://redux-toolkit.js.org/rtk-query/overview#basic-usage)) 
+
 ## Getting Started
 
 First, run the development server:

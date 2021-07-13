@@ -13,14 +13,17 @@ export interface CourtType {
     "deleted_at": null | string
 }
 
-
 // Define a service using a base URL and expected endpoints
 export const courtsApi = createApi({
     reducerPath: 'courtsApi',
     baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
     endpoints: (builder) => ({
-        getAllCourts: builder.query({
-            query: (name) => 'courts/',
+        //                       ResultType  QueryArg
+        //                             v         v
+        getAllCourts: builder.query<CourtType, void>({
+            // inferred as `number` from the `QueryArg` type
+            //      v
+            query: () => 'courts/',
         }),
     }),
 })

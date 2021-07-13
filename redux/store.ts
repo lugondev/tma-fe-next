@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
-import Countries from './slices/countries'
+import CountriesReducer from './slices/countries'
 // Or from '@reduxjs/toolkit/query/react'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { courtsApi } from './rtk-api/courts-api'
 
 export const store = configureStore({
     reducer: {
-        countries: Countries,
+        countries: CountriesReducer,
         // Add the generated reducer as a specific top-level slice
         [courtsApi.reducerPath]: courtsApi.reducer,
     },
