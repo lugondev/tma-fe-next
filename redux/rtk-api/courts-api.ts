@@ -2,12 +2,12 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import {API_URL} from "../../shared/api-url";
 
 export interface CourtType {
-    "id": string,
+    "id": number,
     "country_id": number,
     "court_code": string,
     "court_name": string,
     "created_by": null | number,
-    "updated_by": null | null,
+    "updated_by": null | number,
     "created_at": null | string,
     "updated_at": null | string,
     "deleted_at": null | string
@@ -20,7 +20,7 @@ export const courtsApi = createApi({
     endpoints: (builder) => ({
         //                       ResultType  QueryArg
         //                             v         v
-        getAllCourts: builder.query<CourtType, void>({
+        getAllCourts: builder.query<CourtType[], void>({
             // inferred as `number` from the `QueryArg` type
             //      v
             query: () => 'courts/',
