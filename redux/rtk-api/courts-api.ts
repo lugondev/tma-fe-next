@@ -1,5 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import {API_URL} from "../../shared/api-url";
+import {basicApi} from "./basic-api";
 
 export interface CourtType {
     "id": number,
@@ -14,9 +13,7 @@ export interface CourtType {
 }
 
 // Define a service using a base URL and expected endpoints
-export const courtsApi = createApi({
-    reducerPath: 'courtsApi',
-    baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
+export const courtsApi = basicApi.injectEndpoints({
     endpoints: (builder) => ({
         //                       ResultType  QueryArg
         //                             v         v
@@ -25,9 +22,24 @@ export const courtsApi = createApi({
             //      v
             query: () => 'courts/',
         }),
+        addCourt: builder.mutation<CourtType, Partial<CourtType>>({
+            query: (body) => ({
+                url: `courts/`,
+                method: 'POST',
+                body,
+            }),
+            invalidatesTags: ['Courts'],
+        }),
     }),
 })
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
-export const { useGetAllCourtsQuery } = courtsApi
+// Auto-generated hooks
+export const { useGetAllCourtsQuery, useAddCourtMutation } = courtsApi
+
+// Possible exports
+export const { endpoints, reducerPath, reducer, middleware } = courtsApi
+// reducerPath, reducer, middleware are only used in store configuration
+// endpoints will have:
+// endpoints.getAllCourts.initiate(), endpoints.getAllCourts.select(), endpoints.getAllCourts.useQuery()
+// endpoints.addCourt.initiate(), endpoints.addCourt.select(), endpoints.addCourt.useMutation()
+// see `createApi` overview for _all exports_

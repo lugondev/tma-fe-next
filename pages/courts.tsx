@@ -7,7 +7,6 @@ export default function Courts() {
     // Individual hooks are also accessible under the generated endpoints:
     // const { data, error, isLoading } = courts-api.endpoints.useGetAllCourtsQuery.useQuery('bulbasaur')
 
-    console.log(data);
     // render UI based on data and loading state
     return (
         <>

@@ -3,6 +3,7 @@ import CountriesReducer from './slices/countries'
 // Or from '@reduxjs/toolkit/query/react'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { courtsApi } from './rtk-api/courts-api'
+import {CurriedGetDefaultMiddleware} from "@reduxjs/toolkit/dist/getDefaultMiddleware";
 
 export const store = configureStore({
     reducer: {
@@ -12,7 +13,7 @@ export const store = configureStore({
     },
     // Adding the api middleware enables caching, invalidation, polling,
     // and other useful features of `rtk-query`.
-    middleware: (getDefaultMiddleware) =>
+    middleware: (getDefaultMiddleware: CurriedGetDefaultMiddleware) =>
         getDefaultMiddleware().concat(courtsApi.middleware),
 })
 

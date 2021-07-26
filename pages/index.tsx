@@ -59,6 +59,14 @@ export default function Home() {
                             </p>
                         </a>
                     </Link>
+                    <Link href='/'>
+                        <a className={styles.card}>
+                            <h2>Contact Us &rarr;</h2>
+                            <p>
+                                Show me the Contact us
+                            </p>
+                        </a>
+                    </Link>
                 </div>
             </main>
 
