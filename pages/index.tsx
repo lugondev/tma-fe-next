@@ -59,7 +59,7 @@ export default function Home() {
                             </p>
                         </a>
                     </Link>
-                    <Link href='/'>
+                    <Link href='/newsletter-signup-form'>
                         <a className={styles.card}>
                             <h2>Contact Us &rarr;</h2>
                             <p>

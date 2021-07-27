@@ -1,8 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit'
-import CountriesReducer from './slices/countries'
+import { configureStore } from '@reduxjs/toolkit';
+import CountriesReducer from './slices/countries';
 // Or from '@reduxjs/toolkit/query/react'
-import { setupListeners } from '@reduxjs/toolkit/query'
-import { courtsApi } from './rtk-api/courts-api'
+import { setupListeners } from '@reduxjs/toolkit/query';
+import { courtsApi } from './rtk-api/courts-api';
+import { newsletterSignupApi } from './rtk-api/newsletter-signup-api';
 import {CurriedGetDefaultMiddleware} from "@reduxjs/toolkit/dist/getDefaultMiddleware";
 
 export const store = configureStore({
@@ -10,11 +11,13 @@ export const store = configureStore({
         countries: CountriesReducer,
         // Add the generated reducer as a specific top-level slice
         [courtsApi.reducerPath]: courtsApi.reducer,
+        [newsletterSignupApi.reducerPath]: newsletterSignupApi.reducer,
+
     },
     // Adding the api middleware enables caching, invalidation, polling,
     // and other useful features of `rtk-query`.
     middleware: (getDefaultMiddleware: CurriedGetDefaultMiddleware) =>
-        getDefaultMiddleware().concat(courtsApi.middleware),
+        getDefaultMiddleware().concat([courtsApi.middleware, newsletterSignupApi.middleware]),
 })
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors
