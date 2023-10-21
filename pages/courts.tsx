@@ -1,28 +1,24 @@
-import {useGetAllCourtsQuery, CourtType} from "../redux/rtk-api/courts-api";
-import Link from "next/link";
+import {useBackButton, useWebApp} from "@tma.js/sdk-react";
+import {useEffect} from "react";
 
 export default function Courts() {
-    // Using a query hook automatically fetches data and returns query values
-    const {data, error, isLoading} = useGetAllCourtsQuery();
-    // Individual hooks are also accessible under the generated endpoints:
-    // const { data, error, isLoading } = courts-api.endpoints.useGetAllCourtsQuery.useQuery('bulbasaur')
+    const backButton = useBackButton();
+    const webApp = useWebApp();
 
-    // render UI based on data and loading state
-    return (
-        <>
-            <div>
-                <Link href={'/'}>
-                    <a>
-                        <h1>Home Page</h1>
-                    </a>
-                </Link>
+    // When App is attached to DOM, lets show back button and
+    // add "click" event handler, which should close current application.
+    useEffect(() => {
+        const listener = () => webApp.close();
+        backButton.on('click', listener);
+        backButton.show();
 
-                <ol>
-                    {(isLoading) ? <h1>Loading Courts</h1> : data?.map((court: CourtType, index: number) => {
-                        return <li key={index}>{court.court_name}</li>
-                    })}
-                </ol>
-            </div>
-        </>
-    );
+        return () => {
+            backButton.off('click', listener);
+            backButton.hide();
+        };
+        // We know, that backButton and webApp will never change,
+        // but let's follow React rules.
+    }, [backButton, webApp]);
+
+    return <div>My application!</div>;
 }
