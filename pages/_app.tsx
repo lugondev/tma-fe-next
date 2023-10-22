@@ -1,6 +1,7 @@
 import {InitOptions} from "@tma.js/sdk";
 import {SDKProvider, useSDK} from '@tma.js/sdk-react';
 import type {AppProps} from 'next/app';
+import Script from "next/script";
 import {PropsWithChildren} from "react";
 import {Provider} from 'react-redux';
 import {store} from "../redux/store";
@@ -29,7 +30,17 @@ function Loader({children}: PropsWithChildren<{}>) {
     }
 
     // Safely render application.
-    return <>{children}</>;
+    return <>
+        {children}
+        <Script src="//cdn.jsdelivr.net/npm/eruda"
+                onLoad={() => {
+                    if (process.env.NODE_ENV === 'development') {
+                        // @ts-ignore
+                        window['eruda'].init();
+                    }
+                }}
+        />
+    </>;
 }
 
 function MyApp({Component, pageProps}: AppProps) {
